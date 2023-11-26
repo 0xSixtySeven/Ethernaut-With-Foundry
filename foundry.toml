@@ -4,3 +4,8 @@ out = "out"
 libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+eth_rpc_url = 'https://rpc.ankr.com/eth_sepolia' #had to change to the sepolia rpc url from https://www.ankr.com/rpc/chains/eth/eth_goerli
+#The eth_rpc_url key is set to 'https://rpc.ankr.com/eth_sepolia'. This is the URL of the Ethereum RPC (Remote Procedure Call) endpoint that the project will connect to. RPC is a protocol that one program can use to request a service from a program located in another computer on a network without having to understand the network's details. In this case, the project is connecting to the Ethereum network via the Ankr RPC service. The specific network being connected to is Sepolia, which is a test network for Ethereum.
+etherscan_api_key = '${ETHERSCAN_KEY}'
+#The etherscan_api_key key is set to '${ETHERSCAN_KEY}'. This is a placeholder for the API key for Etherscan, a popular Ethereum block explorer. The actual value of the API key is likely set in an environment variable named ETHERSCAN_KEY. This key would be used to authenticate requests made to the Etherscan API, which can provide data about the Ethereum blockchain, such as transaction details, contract details, and more.
