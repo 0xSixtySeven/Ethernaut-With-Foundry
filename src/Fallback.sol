@@ -26,10 +26,10 @@ contract Fallback {
         _;
     }
 
-    // FIRST STEP: This is the the first function we want to call, we send 1 wei which is less than 0.001 ether, so we claim ownership, after this we go to the receive function.
+    // FIRST STEP: This is the the first function we want to call, we send 1 wei which is less than 0.001 ether. this is one of the two requirments to get the ownership in the receive function.
     function contribute() public payable {
         require(msg.value < 0.001 ether);
-        contributions[msg.sender] += msg.value;
+        contributions[msg.sender] += msg.value; // += is the same as contributions[msg.sender] = contributions[msg.sender] + msg.value;
         if (contributions[msg.sender] > contributions[owner]) {
             owner = msg.sender;
         }
@@ -45,7 +45,7 @@ contract Fallback {
 
     // SECOND STEP: Here we have two conditions to trigger the fallback function:
     // 1. We need to contribute with > 0. which we already did in the first step in the script.
-    // 2. The second condition is that we need
+    // 2. The second condition is that we need more than
     receive() external payable {
         require(msg.value > 0 && contributions[msg.sender] > 0);
         owner = msg.sender;
